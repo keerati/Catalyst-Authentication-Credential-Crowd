@@ -91,7 +91,7 @@ Catalyst::Authentication::Credential::Crowd - Authenticate a user using Crowd RE
             crowd => {
                 credential => {
                     class => 'Crowd',
-                    service_url => 'http://yourcrowdservice.url/authentication,
+                    authen_url => 'http://yourcrowdservice.url/authentication,
                     app => {
                         app_name => 'your_crowd_app_name',
                         password => 'password_for_app_name',
