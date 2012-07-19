@@ -119,8 +119,7 @@ Catalyst::Authentication::Credential::Crowd - Authenticate a user using Crowd RE
 
 =head2 authenticate
 
-Authenticate a user. This method is called from context object Ex. $c->authenticate
-
+Authenticate a user.
 
 =head1 PRIVATE METHODS
 
@@ -128,17 +127,9 @@ Authenticate a user. This method is called from context object Ex. $c->authentic
 
 Make a HTTP request to Crowd REST Service to authenticate a user.
 
-
 =head1 SEE ALSO
 
-Mention other useful documentation such as the documentation of
-related modules or operating system documentation (such as man pages
-in UNIX), or any relevant external documentation such as RFCs or
-standards.
-
-If you have a mailing list set up for your module, mention it here.
-
-If you have a web site set up for your module, mention it here.
+https://github.com/keerati/Catalyst-Authentication-Credential-Crowd
 
 =head1 AUTHOR
 
