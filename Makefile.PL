@@ -1,7 +1,7 @@
 use inc::Module::Install 0.65;
 
 name 'Catalyst-Authentication-Credential-Crowd';
-all_from 'lib/Catalyst/Plugin/Authentication/Credential/Crowd.pm';
+all_from 'lib/Catalyst/Authentication/Credential/Crowd.pm';
 
 requires 'Moose';
 requires 'Catalyst::Runtime';
