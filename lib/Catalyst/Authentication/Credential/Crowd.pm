@@ -36,9 +36,14 @@ around BUILDARGS => sub {
 sub authenticate {
     my ($self, $c, $realm, $authinfo) = @_;
     my $response = $self->_crowd_authen( $authinfo->{username}, $authinfo->{password} );
-    if ( $response->code == 200 ){
-        my $result = from_json( $response->decoded_content );
-        return $realm->find_user( { username => $authinfo->{username} } );
+    if ( $response->is_success ){
+        my $user = $realm->find_user( { username => $authinfo->{username} } );
+        if ( $user ) {
+            return $user;
+        } else {
+            $c->stash( auth_error_msg => 'Authenticated user, but could not locate in store!' );
+            return;
+        }
     }
     $c->stash( auth_error_msg => $response->decoded_content );
     return;
@@ -92,7 +97,7 @@ Catalyst::Authentication::Credential::Crowd - Authenticate a user using Crowd RE
                         password => 'password_for_app_name',
                     }
                 },
-                store => ...
+                ...
             },
         }
     });
