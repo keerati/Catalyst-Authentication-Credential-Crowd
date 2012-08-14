@@ -3,6 +3,8 @@ package Catalyst::Authentication::Credential::Crowd;
 use strict;
 use warnings;
 
+our $VERSION = '0.04';
+
 use Moose;
 use HTTP::Request;
 use LWP::UserAgent;
