@@ -37,7 +37,7 @@ sub authenticate {
     my ($self, $c, $realm, $authinfo) = @_;
     my $response = $self->_crowd_authen( $authinfo->{username}, $authinfo->{password} );
     if ( $response->is_success ){
-        my $user = $realm->find_user( { username => $authinfo->{username} } );
+        my $user = $realm->find_user( { username => $authinfo->{username} }, $c );
         if ( $user ) {
             return $user;
         } else {
