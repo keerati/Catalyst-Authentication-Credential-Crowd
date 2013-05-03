@@ -3,7 +3,7 @@ package Catalyst::Authentication::Credential::Crowd;
 use strict;
 use warnings;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use Moose;
 use HTTP::Request;
