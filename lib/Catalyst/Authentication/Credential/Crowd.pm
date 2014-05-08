@@ -44,8 +44,13 @@ sub authenticate {
             $c->stash( auth_error_msg => 'Authenticated user, but could not locate in store!' );
             return;
         }
+    } elsif ($response->code == 403  && $response->decoded_content =~ m|<h1>HTTP Status 403 - (.*?)</h1>|i) {
+        # indicates a tomcat problem, should probably do something else here?
+        $c->log->warn("Problem comunicating with crowd server: " . $response->code );
+        $c->stash( auth_error_msg => 'tomcat problem: ' . $1 );
+    } else {
+        $c->stash( auth_error_msg => $response->decoded_content );
     }
-    $c->stash( auth_error_msg => $response->decoded_content );
     return;
 
 }

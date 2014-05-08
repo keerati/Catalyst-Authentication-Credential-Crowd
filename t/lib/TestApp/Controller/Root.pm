@@ -13,7 +13,7 @@ sub auth :Path('/auth') {
     } ) ){
         $c->res->body( 'pass' );
     } else {
-        $c->res->body( 'fail' );
+        $c->res->body( 'fail - ' . $c->stash->{'auth_error_msg'} );
     }
 }
 

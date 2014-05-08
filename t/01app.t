@@ -25,4 +25,9 @@ subtest "authentication fail" => sub {
     done_testing();
 };
 
+subtest "app settings denial" => sub {
+    $mech->get_ok('/auth?username=denied&password=def');
+    $mech->content_contains( '0:0:0:0:0:1' );
+};
+
 done_testing();
